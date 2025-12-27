@@ -1,0 +1,22 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: local-pool
+  namespace: metallb-system
+spec:
+  # Use an IP range that is within your kind docker network range (e.g., 172.18.0.0/16)
+  # but unlikely to conflict with existing containers.
+  # Adjust this range based on the output of `docker network inspect`.
+  addresses:
+  - 172.18.255.200-172.18.255.250
+
+---
+
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - local-pool
