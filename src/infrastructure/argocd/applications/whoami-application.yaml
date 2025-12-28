@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/GustavoMeloMrv/local-kubernetes.git
     targetRevision: HEAD
-    path: src/infrastructure/gitops/apps/whoami
+    path: src/infrastructure/gitops/apps/whoami/kustomize/overlays/qas 
   destination:
     server: https://kubernetes.default.svc
     namespace: apps
